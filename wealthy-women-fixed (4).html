@@ -1,0 +1,2451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wealthy Women | Closing the Gender Gap in Capital</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
+    </style>
+    <style>
+        :root {
+            --coral: #DC2626;
+            --coral-dark: #B91C1C;
+            --teal: #DC2626;
+            --teal-light: #EF4444;
+            --cream: #FFFFFF;
+            --charcoal: #1F2937;
+            --gold: #DC2626;
+            --sage: #10B981;
+            --blush: #F3F4F6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: #FFFFFF;
+            color: #1F2937;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Grain Overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            opacity: 0.02;
+            pointer-events: none;
+            z-index: 10000;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            transition: all 0.4s ease;
+            border-bottom: 1px solid #E5E7EB;
+        }
+
+        nav.scrolled {
+            padding: 1rem 4rem;
+            box-shadow: 0 2px 40px rgba(0,0,0,0.08);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #1F2937;
+            text-decoration: none;
+            letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            height: 45px;
+            width: auto;
+            filter: none;
+        }
+
+        .logo span {
+            color: var(--coral);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #4B5563;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #DC2626;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--coral);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%);
+            color: white;
+            padding: 0.75rem 1.75rem;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.85rem;
+            letter-spacing: 0.03em;
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            background: linear-gradient(135deg, #B91C1C 0%, #DC2626 100%);
+            transform: translateY(-2px);
+        }
+
+        .btn-demo:hover {
+            background: linear-gradient(135deg, #B91C1C 0%, #DC2626 100%) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.3);
+        }
+
+        .nav-demo:hover {
+            background: #DC2626 !important;
+            border-color: #DC2626 !important;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 4rem;
+            position: relative;
+            overflow: hidden;
+            background: #F9FAFB;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 55%;
+            height: 100%;
+            background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%);
+            clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+        }
+
+        .hero-pattern {
+            position: absolute;
+            top: 50%;
+            right: 10%;
+            transform: translateY(-50%);
+            width: 400px;
+            height: 400px;
+            opacity: 0.15;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(220, 38, 38, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 100px;
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .hero-tag span {
+            width: 8px;
+            height: 8px;
+            background: #DC2626;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        .hero-tag p {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #DC2626;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            font-weight: 500;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+            animation: fadeInUp 0.8s ease 0.1s forwards;
+            opacity: 0;
+            color: #1F2937;
+        }
+
+        .hero h1 em {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            color: #DC2626;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: #4B5563;
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+            animation: fadeInUp 0.8s ease 0.2s forwards;
+            opacity: 0;
+        }
+
+        .hero-stat {
+            position: absolute;
+            right: 15%;
+            top: 50%;
+            transform: translateY(-50%);
+            text-align: center;
+            z-index: 20;
+            animation: fadeInUp 0.8s ease 0.4s forwards;
+            opacity: 0;
+        }
+
+        .hero-stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 8rem;
+            font-weight: 700;
+            color: white;
+            line-height: 1;
+            text-shadow: 0 4px 60px rgba(0,0,0,0.2);
+        }
+
+        .hero-stat-label {
+            font-size: 1rem;
+            color: rgba(255,255,255,0.9);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-top: 0.5rem;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            gap: 1rem;
+            animation: fadeInUp 0.8s ease 0.3s forwards;
+            opacity: 0;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #B91C1C 0%, #DC2626 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #1F2937;
+            padding: 1rem 2rem;
+            border: 2px solid #D1D5DB;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: #F3F4F6;
+            border-color: #DC2626;
+            color: #DC2626;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Floating Stats */
+        .floating-stats {
+            position: relative;
+            display: flex;
+            gap: 3rem;
+            z-index: 20;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: white;
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid #E5E7EB;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .floating-stat {
+            animation: fadeInUp 0.8s ease forwards;
+            opacity: 0;
+        }
+
+        .floating-stat:nth-child(1) { animation-delay: 0.5s; }
+        .floating-stat:nth-child(2) { animation-delay: 0.6s; }
+        .floating-stat:nth-child(3) { animation-delay: 0.7s; }
+
+        .floating-stat h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #DC2626;
+        }
+
+        .floating-stat p {
+            font-size: 0.85rem;
+            color: #6B7280;
+            max-width: 150px;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 8rem 4rem;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 5rem;
+        }
+
+        .section-tag {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #DC2626;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 500;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+            color: #1F2937;
+        }
+
+        .section-subtitle {
+            font-size: 1.15rem;
+            color: #6B7280;
+            line-height: 1.7;
+        }
+
+        /* The Problem Section */
+        .problem-section {
+            background: #F3F4F6;
+            color: #1F2937;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .problem-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -25%;
+            width: 150%;
+            height: 200%;
+            background: radial-gradient(ellipse at center, rgba(220, 38, 38, 0.03) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .problem-section .section-tag {
+            color: #DC2626;
+        }
+
+        .problem-section .section-title {
+            color: #1F2937;
+        }
+
+        .problem-section .section-subtitle {
+            color: #6B7280;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .problem-card {
+            background: white;
+            border: 1px solid #E5E7EB;
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .problem-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #DC2626 0%, #EF4444 100%);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .problem-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .problem-card:hover {
+            background: white;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .problem-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .problem-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: white;
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .problem-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: #1F2937;
+        }
+
+        .problem-card p {
+            font-size: 0.95rem;
+            color: #6B7280;
+            line-height: 1.7;
+        }
+
+        /* Statistics Showcase */
+        .stats-showcase {
+            background: white;
+            position: relative;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .stat-visual {
+            position: relative;
+        }
+
+        .donut-chart {
+            width: 350px;
+            height: 350px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .donut-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: conic-gradient(
+                #DC2626 0deg 6.5deg,
+                rgba(220, 38, 38, 0.1) 6.5deg 360deg
+            );
+        }
+
+        .donut-hole {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: #F9FAFB;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+
+        .donut-percentage {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #DC2626;
+        }
+
+        .donut-label {
+            font-size: 0.9rem;
+            color: #6B7280;
+            text-align: center;
+            max-width: 120px;
+        }
+
+        .stat-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+            color: #1F2937;
+        }
+
+        .stat-content h3 span {
+            color: #DC2626;
+        }
+
+        .stat-content p {
+            font-size: 1.1rem;
+            color: #6B7280;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .stat-comparison {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .comparison-item {
+            flex: 1;
+            padding: 1.5rem;
+            background: #F3F4F6;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .comparison-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: #DC2626;
+        }
+
+        .comparison-value.positive {
+            color: #10B981;
+        }
+
+        .comparison-label {
+            font-size: 0.85rem;
+            color: #6B7280;
+            margin-top: 0.5rem;
+        }
+
+        /* Commitment Section */
+        .commitment-section {
+            background: #F3F4F6;
+            padding: 8rem 4rem;
+            position: relative;
+        }
+
+        .commitment-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .commitment-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .commitment-intro {
+            font-size: 1.25rem;
+            color: #6B7280;
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+
+        .commitment-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .commitment-item {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+            align-items: flex-start;
+        }
+
+        .commitment-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .commitment-details h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: #1F2937;
+        }
+
+        .commitment-details p {
+            font-size: 1rem;
+            color: #6B7280;
+            line-height: 1.7;
+        }
+
+        .commitment-goals {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            margin-top: 3rem;
+            border: 1px solid #E5E7EB;
+        }
+
+        .commitment-goals h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.35rem;
+            margin-bottom: 1.5rem;
+            color: #1F2937;
+        }
+
+        .goals-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .goal-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .goal-item svg {
+            width: 24px;
+            height: 24px;
+            stroke: #10B981;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .goal-item span {
+            font-size: 1.05rem;
+            color: #4B5563;
+            line-height: 1.6;
+        }
+
+        .goal-item strong {
+            color: #1F2937;
+            font-weight: 600;
+        }
+
+        .commitment-visual {
+            position: relative;
+        }
+
+        .platform-preview {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            transition: transform 0.4s ease;
+            background: white;
+        }
+
+        .platform-preview:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 80px rgba(0,0,0,0.15);
+        }
+
+        .dashboard-mockup {
+            padding: 0;
+            color: var(--charcoal);
+            background: #F8F9FA;
+        }
+
+        .dashboard-welcome {
+            background: white;
+            padding: 2rem 2.5rem;
+            border-bottom: 1px solid #E5E7EB;
+        }
+
+        .dashboard-welcome h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.75rem;
+            color: var(--charcoal);
+            margin-bottom: 0.25rem;
+        }
+
+        .dashboard-welcome p {
+            font-size: 0.875rem;
+            color: #6B7280;
+            margin: 0;
+        }
+
+        .portfolio-overview {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+            padding: 2rem 2.5rem;
+        }
+
+        .overview-card {
+            background: white;
+            border: 1px solid #E5E7EB;
+            border-radius: 12px;
+            padding: 1.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .overview-card:hover {
+            border-color: var(--coral);
+            box-shadow: 0 4px 12px rgba(229, 57, 53, 0.1);
+        }
+
+        .overview-card.primary {
+            background: linear-gradient(135deg, var(--coral) 0%, var(--coral-dark) 100%);
+            border: none;
+            color: white;
+        }
+
+        .overview-card.primary .card-label {
+            color: rgba(255,255,255,0.9);
+        }
+
+        .overview-card.primary .card-value {
+            color: white;
+        }
+
+        .overview-card.primary .card-change {
+            color: rgba(255,255,255,0.95);
+        }
+
+        .card-label {
+            font-size: 0.75rem;
+            color: #6B7280;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .card-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--charcoal);
+            margin-bottom: 0.5rem;
+            line-height: 1;
+        }
+
+        .card-change {
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            color: var(--sage);
+            font-weight: 500;
+        }
+
+        .card-meta {
+            font-size: 0.875rem;
+            color: #6B7280;
+            margin-top: 0.5rem;
+        }
+
+        .sector-section {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 0 2.5rem 1.5rem 2.5rem;
+            border: 1px solid #E5E7EB;
+        }
+
+        .sector-section h5 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 1.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.025em;
+            font-size: 0.875rem;
+        }
+
+        .sector-grid {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .chart-container {
+            display: flex;
+            justify-content: center;
+        }
+
+        .pie-chart {
+            width: 180px;
+            height: 180px;
+            filter: drop-shadow(0 2px 8px rgba(0,0,0,0.08));
+        }
+
+        .sector-legend {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            background: #F9FAFB;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .legend-item:hover {
+            background: #F3F4F6;
+        }
+
+        .legend-color {
+            width: 14px;
+            height: 14px;
+            border-radius: 3px;
+            flex-shrink: 0;
+        }
+
+        .legend-details {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .legend-label {
+            font-size: 0.875rem;
+            color: var(--charcoal);
+            font-weight: 500;
+        }
+
+        .legend-value {
+            font-size: 0.75rem;
+            color: #6B7280;
+        }
+
+        .secondary-cta {
+            background: linear-gradient(135deg, #FEF3F2 0%, #FEE2E2 100%);
+            border: 2px solid var(--coral);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 0 2.5rem 1.5rem 2.5rem;
+        }
+
+        .secondary-content {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+            margin-bottom: 1.25rem;
+        }
+
+        .secondary-icon {
+            font-size: 2.5rem;
+            flex-shrink: 0;
+        }
+
+        .secondary-text h6 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin: 0 0 0.5rem 0;
+        }
+
+        .secondary-text p {
+            font-size: 0.9rem;
+            color: #4B5563;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .secondary-btn {
+            background: var(--coral);
+            color: white;
+            border: none;
+            padding: 0.875rem 1.75rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            letter-spacing: 0.025em;
+        }
+
+        .secondary-btn:hover {
+            background: var(--coral-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(229, 57, 53, 0.3);
+        }
+
+        .quick-stats {
+            display: flex;
+            gap: 2rem;
+            padding: 1.75rem 2.5rem;
+            background: white;
+            border-top: 1px solid #E5E7EB;
+        }
+
+        .quick-stat-item {
+            display: flex;
+            align-items: center;
+            gap: 0.625rem;
+            font-size: 0.875rem;
+            color: #6B7280;
+        }
+
+        .qs-icon {
+            font-size: 1.25rem;
+        }
+
+        .qs-text strong {
+            color: var(--charcoal);
+            font-weight: 600;
+        }
+
+        /* Stakeholder Sections */
+        .stakeholder-section {
+            position: relative;
+            background: white;
+        }
+
+        .stakeholder-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 4rem;
+        }
+
+        .stakeholder-tab {
+            padding: 1rem 2rem;
+            border: 2px solid #E5E7EB;
+            border-radius: 100px;
+            background: transparent;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #4B5563;
+        }
+
+        .stakeholder-tab.active {
+            background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%);
+            border-color: transparent;
+            color: white;
+        }
+
+        .stakeholder-tab:hover:not(.active) {
+            border-color: #DC2626;
+            color: #DC2626;
+        }
+
+        .stakeholder-content {
+            display: none;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stakeholder-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .inhibitor-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .inhibitor-card {
+            background: #F9FAFB;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--coral);
+            transition: all 0.3s ease;
+        }
+
+        .inhibitor-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 8px 40px rgba(0,0,0,0.1);
+        }
+
+        .inhibitor-card h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: var(--charcoal);
+        }
+
+        .inhibitor-card p {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* Solutions Section */
+        .solutions-section {
+            background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .solutions-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            transform: translate(30%, -30%);
+        }
+
+        .solutions-section .section-tag {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .solutions-section .section-title {
+            color: white;
+        }
+
+        .solutions-section .section-subtitle {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .solution-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 24px;
+            padding: 2.5rem;
+            transition: all 0.4s ease;
+        }
+
+        .solution-card:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-10px);
+        }
+
+        .solution-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: rgba(255,255,255,0.2);
+            margin-bottom: 1rem;
+        }
+
+        .solution-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        .solution-card p {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .ai-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.15);
+            padding: 0.5rem 1rem;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .ai-badge svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .impact-list {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .impact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .impact-item svg {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        /* Theory of Change */
+        .theory-section {
+            background: #F9FAFB;
+            position: relative;
+        }
+
+        .theory-visual {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .theory-flow {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .theory-node {
+            flex: 1;
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            position: relative;
+            border: 1px solid #E5E7EB;
+        }
+
+        .theory-node::after {
+            content: '→';
+            position: absolute;
+            right: -2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            color: var(--coral);
+        }
+
+        .theory-node:last-child::after {
+            display: none;
+        }
+
+        .theory-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--coral) 0%, var(--coral-dark) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+
+        .theory-icon svg {
+            width: 32px;
+            height: 32px;
+            stroke: white;
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .theory-node h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: #1F2937;
+        }
+
+        .theory-node p {
+            font-size: 0.85rem;
+            color: #6B7280;
+        }
+
+        /* Goal Section */
+        .goal-section {
+            background: #1F2937;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .goal-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(220, 38, 38, 0.2) 0%, transparent 70%);
+        }
+
+        .goal-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 12rem;
+            font-weight: 700;
+            line-height: 1;
+            background: linear-gradient(135deg, #DC2626 0%, #EF4444 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .goal-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .goal-subtext {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.7);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: #F3F4F6;
+            position: relative;
+        }
+
+        .cta-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .cta-card {
+            padding: 3rem;
+            border-radius: 24px;
+            text-align: center;
+            transition: all 0.4s ease;
+        }
+
+        .cta-card:nth-child(1) {
+            background: white;
+            border: 2px solid #E5E7EB;
+        }
+
+        .cta-card:nth-child(1) h3,
+        .cta-card:nth-child(1) p {
+            color: #1F2937;
+        }
+
+        .cta-card:nth-child(2) {
+            background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%);
+            color: white;
+        }
+
+        .cta-card:nth-child(2) h3,
+        .cta-card:nth-child(2) p {
+            color: white;
+        }
+
+        .cta-card:nth-child(3) {
+            background: white;
+            border: 2px solid #E5E7EB;
+            color: #1F2937;
+        }
+
+        .cta-card:nth-child(3) h3,
+        .cta-card:nth-child(3) p {
+            color: #1F2937;
+        }
+
+        .cta-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .cta-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            color: #1F2937;
+        }
+
+        .cta-card p {
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+            color: #6B7280;
+        }
+
+        .cta-card:nth-child(2) h3,
+        .cta-card:nth-child(2) p {
+            color: white;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 100px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .cta-card:nth-child(1) .cta-btn {
+            background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%);
+            color: white;
+        }
+
+        .cta-card:nth-child(1) .cta-btn:hover {
+            background: linear-gradient(135deg, #B91C1C 0%, #DC2626 100%);
+        }
+
+        .cta-card:nth-child(2) .cta-btn {
+            background: white;
+            color: #DC2626;
+        }
+
+        .cta-card:nth-child(2) .cta-btn:hover {
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .cta-card:nth-child(3) .cta-btn {
+            background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%);
+            color: white;
+        }
+
+        .cta-card:nth-child(3) .cta-btn:hover {
+            background: linear-gradient(135deg, #B91C1C 0%, #DC2626 100%);
+        }
+
+        .cta-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* Partners */
+        .partners-section {
+            background: white;
+            text-align: center;
+        }
+
+        .partners-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+            opacity: 1;
+        }
+
+        .partners-grid span {
+            color: #1F2937;
+        }
+
+        .partner-logo {
+            height: 50px;
+            filter: grayscale(100%);
+            transition: all 0.3s ease;
+        }
+
+        .partner-logo:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--charcoal);
+            color: white;
+            padding: 5rem 4rem 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-brand h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand h2 span {
+            color: var(--coral);
+        }
+
+        .footer-brand p {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.7;
+            max-width: 300px;
+        }
+
+        .footer-col h4 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            color: rgba(255,255,255,0.5);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-col a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-col a:hover {
+            color: var(--coral);
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 4rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-bottom p {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.5);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            background: var(--coral);
+            border-color: var(--coral);
+        }
+
+        .footer-social svg {
+            width: 18px;
+            height: 18px;
+            fill: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+            .hero-stat {
+                right: 8%;
+            }
+            .hero-stat-number {
+                font-size: 6rem;
+            }
+            .problem-grid,
+            .solutions-grid,
+            .cta-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 992px) {
+            nav {
+                padding: 1rem 2rem;
+            }
+            .nav-links {
+                display: none;
+            }
+            section {
+                padding: 5rem 2rem;
+            }
+            .hero {
+                padding: 6rem 2rem;
+            }
+            .hero-bg {
+                width: 100%;
+                clip-path: none;
+                opacity: 0.1;
+            }
+            .hero-stat {
+                position: relative;
+                right: auto;
+                top: auto;
+                transform: none;
+                margin-top: 3rem;
+            }
+            .hero-stat-number {
+                color: var(--coral);
+            }
+            .hero-stat-label {
+                color: #666;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .commitment-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .inhibitor-list {
+                grid-template-columns: 1fr;
+            }
+            .theory-flow {
+                flex-direction: column;
+            }
+            .theory-node::after {
+                display: none;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .section-title {
+                font-size: 2.5rem;
+            }
+            .problem-grid,
+            .solutions-grid,
+            .cta-grid {
+                grid-template-columns: 1fr;
+            }
+            .floating-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+                margin-top: 2rem;
+            }
+            .stakeholder-tabs {
+                flex-wrap: wrap;
+            }
+            .goal-number {
+                font-size: 6rem;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <a href="#" class="logo">
+            <img src="https://i.ibb.co/ZMkYLKb/Screenshot-2024-12-22-at-1-18-07-AM.png" alt="Wealthy Women" class="logo-img" />
+        </a>
+        <ul class="nav-links">
+            <li><a href="#research">Research</a></li>
+            <li><a href="#barriers">Barriers</a></li>
+            <li><a href="#solutions">Solutions</a></li>
+            <li><a href="#goal">Our Goal</a></li>
+            <li><a href="#join">Join Us</a></li>
+        </ul>
+        <a href="#join" class="nav-cta">Become a Member</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <svg class="hero-pattern" viewBox="0 0 200 200">
+            <defs>
+                <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                    <circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.3)"/>
+                </pattern>
+            </defs>
+            <rect width="200" height="200" fill="url(#grid)"/>
+        </svg>
+        
+        <div class="hero-content">
+            <div class="hero-tag">
+                <span></span>
+                <p>Research-Backed Initiative</p>
+            </div>
+            <h1>Closing the <em>Gender Gap</em> in Capital</h1>
+            <p class="hero-subtitle">Bringing together women in Venture, Private Equity & Debt, Angels & Philanthropy to accelerate wealth generation and create systemic change in funding.</p>
+            <div class="hero-cta-group">
+                <a href="https://wfw-metronome.replit.app/dashboard" class="btn-primary">
+                    Platform Demo
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+                <a href="#join" class="btn-secondary">Join the Movement</a>
+            </div>
+
+            <div class="floating-stats">
+                <div class="floating-stat">
+                    <h3>10%</h3>
+                    <p>Our goal by 2035</p>
+                </div>
+                <div class="floating-stat">
+                    <h3>4-6%</h3>
+                    <p>Motherhood earnings penalty</p>
+                </div>
+                <div class="floating-stat">
+                    <h3>+4%</h3>
+                    <p>Fatherhood earnings bonus</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-stat">
+            <div class="hero-stat-number">2.2%</div>
+            <div class="hero-stat-label">VC funding to female founders in 2024</div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem-section" id="research">
+        <div class="section-header">
+            <span class="section-tag">The Research</span>
+            <h2 class="section-title">Structural Inhibitors Facing Female Founders</h2>
+            <p class="section-subtitle">Based on co-creative workshops conducted with Parsons ELab and the Diversified Capital Coalition, identifying the systemic barriers that limit access to capital.</p>
+        </div>
+
+        <div class="problem-grid">
+            <div class="problem-card">
+                <div class="problem-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                </div>
+                <h3>Structural Barriers & Biases</h3>
+                <p>Female founders face inequities at every step compared to men. Patriarchy, sexism, and racism negatively compound a woman's entrepreneurial experience.</p>
+            </div>
+
+            <div class="problem-card">
+                <div class="problem-icon">
+                    <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <h3>Network Exclusion</h3>
+                <p>Limited access to influential networks prevents women from connecting with key investors, mentors, and critical resources, hindering business growth.</p>
+            </div>
+
+            <div class="problem-card">
+                <div class="problem-icon">
+                    <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                </div>
+                <h3>Health Consequences</h3>
+                <p>Women face operational challenges leading to long-term stress and negative health effects. They often undersell achievements and shy away from highlighting strengths.</p>
+            </div>
+
+            <div class="problem-card">
+                <div class="problem-icon">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                </div>
+                <h3>False Perceptions</h3>
+                <p>The "Holmes Effect" creates bias that women are less trustworthy, despite data showing female founders outperforming men.</p>
+            </div>
+
+            <div class="problem-card">
+                <div class="problem-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <h3>Time Poverty Bias</h3>
+                <p>Programs designed for those with ample time and money don't consider that women juggle dual responsibilities including family care and primary job duties.</p>
+            </div>
+
+            <div class="problem-card">
+                <div class="problem-icon">
+                    <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+                </div>
+                <h3>Intergenerational Trauma</h3>
+                <p>Systemic racism, patriarchy, and societal expectations are embedded in intergenerational transfer of trauma, perpetuating underrepresentation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="stats-showcase">
+        <div class="stats-grid">
+            <div class="stat-visual">
+                <div class="donut-chart">
+                    <div class="donut-ring"></div>
+                    <div class="donut-hole">
+                        <span class="donut-percentage">2.2%</span>
+                        <span class="donut-label">VC funding to female founders</span>
+                    </div>
+                </div>
+            </div>
+            <div class="stat-content">
+                <h3>Despite starting businesses at <span>higher rates</span>, women receive disproportionately less capital</h3>
+                <p>Female founders in the U.S. continue to receive a disproportionately small share of venture capital—just 2.2% in 2024. While this represents a slight improvement from 1.8% in 2023, it still demonstrates a systemic failure that requires coordinated intervention.</p>
+                
+                <div class="stat-comparison">
+                    <div class="comparison-item">
+                        <div class="comparison-value">-4-6%</div>
+                        <div class="comparison-label">Motherhood Penalty<br>on earnings</div>
+                    </div>
+                    <div class="comparison-item">
+                        <div class="comparison-value positive">+4%</div>
+                        <div class="comparison-label">Fatherhood Bonus<br>on earnings</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Commitment Section -->
+    <section class="commitment-section">
+        <div class="commitment-content">
+            <div class="commitment-header">
+                <span class="section-tag">We're Solutions-Oriented</span>
+                <h2 class="section-title">Committed to Systemic Change</h2>
+            </div>
+            
+            <div class="commitment-grid">
+                <div class="commitment-text">
+                    <p class="commitment-intro">We're committing to change this through two transformative initiatives:</p>
+                    
+                    <div class="commitment-item">
+                        <div class="commitment-number">1</div>
+                        <div class="commitment-details">
+                            <h3>AI-Enabled Deal-Making Platform</h3>
+                            <p>Building the first AI-powered platform to facilitate more deal-making and liquidity optionality for women investors and entrepreneurs.</p>
+                        </div>
+                    </div>
+
+                    <div class="commitment-item">
+                        <div class="commitment-number">2</div>
+                        <div class="commitment-details">
+                            <h3>Capital Allocator Accountability</h3>
+                            <p>Driving commitments through comprehensive ratings and reviews of every capital allocator to create transparency and incentivize change.</p>
+                        </div>
+                    </div>
+
+                    <div class="commitment-goals">
+                        <h4>By the end of 2026, we will have:</h4>
+                        <div class="goals-list">
+                            <div class="goal-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                                <span><strong>100 capital allocators</strong> rated for their efforts to drive these numbers up</span>
+                            </div>
+                            <div class="goal-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                                <span>Over <strong>10,000 women</strong> make their first investment</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="commitment-visual">
+                    <div class="platform-preview">
+                        <div class="dashboard-mockup">
+                            <!-- Dashboard Header -->
+                            <div class="dashboard-welcome">
+                                <h4>Welcome, Ella Cook</h4>
+                                <p>Sunday, December 21, 2025 • 3:42 PM EST</p>
+                            </div>
+                            
+                            <!-- Portfolio Overview -->
+                            <div class="portfolio-overview">
+                                <div class="overview-card primary">
+                                    <div class="card-label">Current Portfolio Value</div>
+                                    <div class="card-value">$8.7M</div>
+                                    <div class="card-change positive">↑ $420K this month (+5.1%)</div>
+                                </div>
+                                
+                                <div class="overview-card">
+                                    <div class="card-label">Total Investments</div>
+                                    <div class="card-value">24</div>
+                                    <div class="card-meta">Across 8 sectors</div>
+                                </div>
+                                
+                                <div class="overview-card">
+                                    <div class="card-label">Available for Secondary</div>
+                                    <div class="card-value">7</div>
+                                    <div class="card-meta">$2.3M potential liquidity</div>
+                                </div>
+                            </div>
+                            
+                            <!-- Sector Distribution -->
+                            <div class="sector-section">
+                                <h5>Portfolio Allocation by Sector</h5>
+                                <div class="sector-grid">
+                                    <div class="chart-container">
+                                        <svg viewBox="0 0 200 200" class="pie-chart">
+                                            <!-- Fintech - 30% -->
+                                            <circle cx="100" cy="100" r="80" fill="none" stroke="#4A6650" stroke-width="60" 
+                                                    stroke-dasharray="150.8 502.4" transform="rotate(-90 100 100)"/>
+                                            <!-- Healthcare - 25% -->
+                                            <circle cx="100" cy="100" r="80" fill="none" stroke="#6B8E70" stroke-width="60" 
+                                                    stroke-dasharray="125.6 502.4" stroke-dashoffset="-150.8" transform="rotate(-90 100 100)"/>
+                                            <!-- E-commerce - 20% -->
+                                            <circle cx="100" cy="100" r="80" fill="none" stroke="#87A878" stroke-width="60" 
+                                                    stroke-dasharray="100.5 502.4" stroke-dashoffset="-276.4" transform="rotate(-90 100 100)"/>
+                                            <!-- AI/ML - 15% -->
+                                            <circle cx="100" cy="100" r="80" fill="none" stroke="#D4AF37" stroke-width="60" 
+                                                    stroke-dasharray="75.4 502.4" stroke-dashoffset="-376.9" transform="rotate(-90 100 100)"/>
+                                            <!-- Other - 10% -->
+                                            <circle cx="100" cy="100" r="80" fill="none" stroke="#E53935" stroke-width="60" 
+                                                    stroke-dasharray="50.2 502.4" stroke-dashoffset="-452.3" transform="rotate(-90 100 100)"/>
+                                            <circle cx="100" cy="100" r="50" fill="#2F4538"/>
+                                            <text x="100" y="95" text-anchor="middle" fill="white" font-size="16" font-weight="600">$8.7M</text>
+                                            <text x="100" y="110" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="10">Total Value</text>
+                                        </svg>
+                                    </div>
+                                    
+                                    <div class="sector-legend">
+                                        <div class="legend-item">
+                                            <div class="legend-color" style="background: #4A6650;"></div>
+                                            <div class="legend-details">
+                                                <span class="legend-label">Fintech</span>
+                                                <span class="legend-value">30% • $2.6M</span>
+                                            </div>
+                                        </div>
+                                        <div class="legend-item">
+                                            <div class="legend-color" style="background: #6B8E70;"></div>
+                                            <div class="legend-details">
+                                                <span class="legend-label">Healthcare</span>
+                                                <span class="legend-value">25% • $2.2M</span>
+                                            </div>
+                                        </div>
+                                        <div class="legend-item">
+                                            <div class="legend-color" style="background: #87A878;"></div>
+                                            <div class="legend-details">
+                                                <span class="legend-label">E-commerce</span>
+                                                <span class="legend-value">20% • $1.7M</span>
+                                            </div>
+                                        </div>
+                                        <div class="legend-item">
+                                            <div class="legend-color" style="background: #D4AF37;"></div>
+                                            <div class="legend-details">
+                                                <span class="legend-label">AI/ML</span>
+                                                <span class="legend-value">15% • $1.3M</span>
+                                            </div>
+                                        </div>
+                                        <div class="legend-item">
+                                            <div class="legend-color" style="background: #E53935;"></div>
+                                            <div class="legend-details">
+                                                <span class="legend-label">Other</span>
+                                                <span class="legend-value">10% • $870K</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Secondary Market CTA -->
+                            <div class="secondary-cta">
+                                <div class="secondary-content">
+                                    <div class="secondary-icon">💰</div>
+                                    <div class="secondary-text">
+                                        <h6>Want to sell some of your stakes as secondaries?</h6>
+                                        <p>7 of your investments are eligible for secondary sale. Unlock liquidity while staying invested in winners.</p>
+                                    </div>
+                                </div>
+                                <button class="secondary-btn">Explore Secondary Market →</button>
+                            </div>
+                            
+                            <!-- Quick Stats -->
+                            <div class="quick-stats">
+                                <div class="quick-stat-item">
+                                    <span class="qs-icon">📈</span>
+                                    <span class="qs-text">Avg ROI: <strong>42.3%</strong></span>
+                                </div>
+                                <div class="quick-stat-item">
+                                    <span class="qs-icon">🎯</span>
+                                    <span class="qs-text">Active Deals: <strong>5 matches</strong></span>
+                                </div>
+                                <div class="quick-stat-item">
+                                    <span class="qs-icon">⚡</span>
+                                    <span class="qs-text">New Opps: <strong>12 this week</strong></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stakeholder Barriers Section -->
+    <section class="stakeholder-section" id="barriers">
+        <div class="section-header">
+            <span class="section-tag">By Stakeholder</span>
+            <h2 class="section-title">Understanding the Barriers</h2>
+            <p class="section-subtitle">Our research identified specific challenges across the funding ecosystem.</p>
+        </div>
+
+        <div class="stakeholder-tabs">
+            <button class="stakeholder-tab active" data-tab="founders">Female Founders</button>
+            <button class="stakeholder-tab" data-tab="incubators">Incubators & Accelerators</button>
+            <button class="stakeholder-tab" data-tab="investors">Investors</button>
+        </div>
+
+        <div id="founders" class="stakeholder-content active">
+            <div class="inhibitor-list">
+                <div class="inhibitor-card">
+                    <h4>Structural Barriers & Biases</h4>
+                    <p>Patriarchy, sexism, and racism negatively compound at every step of a woman's entrepreneurial journey.</p>
+                </div>
+                <div class="inhibitor-card">
+                    <h4>Motherhood Penalty</h4>
+                    <p>Women experience an average 4-6% loss in earnings while men increase earnings by an average of 4%.</p>
+                </div>
+                <div class="inhibitor-card">
+                    <h4>Network Exclusion</h4>
+                    <p>Limited access to influential networks prevents connections with key investors, mentors, and resources.</p>
+                </div>
+                <div class="inhibitor-card">
+                    <h4>Mental & Physical Health Impact</h4>
+                    <p>Operational challenges lead to long-term stress and its negative health effects throughout the funding journey.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="incubators" class="stakeholder-content">
+            <div class="inhibitor-list">
+                <div class="inhibitor-card">
+                    <h4>Network Impact</h4>
+                    <p>Program managers rely heavily on personal networks rather than open market calls or conscious outreach to diverse communities.</p>
+                </div>
+                <div class="inhibitor-card">
+                    <h4>Program Design Lacks Flexibility</h4>
+                    <p>Programs developed for those with ample time and money don't consider different founder lifestyles and needs—"time poverty bias."</p>
+                </div>
+                <div class="inhibitor-card">
+                    <h4>Vetting & Selection Bias</h4>
+                    <p>Programs connected to VC use fund criteria that excludes founders in sectors other than scalable tech, which predominantly attracts men.</p>
+                </div>
+                <div class="inhibitor-card">
+                    <h4>Lack of Safe Spaces</h4>
+                    <p>Women and POC are underrepresented, and events hosted in venues like whiskey or steak houses reinforce exclusion.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="investors" class="stakeholder-content">
+            <div class="inhibitor-list">
+                <div class="inhibitor-card">
+                    <h4>False Perceptions</h4>
+                    <p>The "Holmes Effect" creates bias despite data showing female founders outperforming men.</p>
+                </div>
+                <div class="inhibitor-card">
+                    <h4>Risk Appetite & Herd Mentality</h4>
+                    <p>Investors mitigate volatility through self-limiting actions and herd mentality rather than evidence-based evaluation.</p>
+                </div>
+                <div class="inhibitor-card">
+                    <h4>Traditions & Lack of Innovation</h4>
+                    <p>Investors lack imagination and willingness to diversify portfolios by sectors—traditional and conservative approaches persist.</p>
+                </div>
+                <div class="inhibitor-card">
+                    <h4>Cascade Effect</h4>
+                    <p>Pension fund managers' restrictions set into motion "go with what you know" and "trusted and tested" mindsets throughout the chain.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section class="solutions-section" id="solutions">
+        <div class="section-header">
+            <span class="section-tag">Solution Spaces</span>
+            <h2 class="section-title">AI-Powered Solutions for Systemic Change</h2>
+            <p class="section-subtitle">Top-voted ideas from our co-creative workshops, enhanced with AI optimization strategies.</p>
+        </div>
+
+        <div class="solutions-grid">
+            <div class="solution-card">
+                <div class="solution-number">01</div>
+                <h3>Vetted Database & Network</h3>
+                <p>Create and share a comprehensive database of programs, networks, and resources for diverse founders where programs opt-in and pledge to be welcoming.</p>
+                <div class="ai-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+                    AI Application Screening & Network Building
+                </div>
+                <div class="impact-list">
+                    <div class="impact-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        Fosters peer-to-peer learning
+                    </div>
+                    <div class="impact-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        Builds sustainable talent pipeline
+                    </div>
+                </div>
+            </div>
+
+            <div class="solution-card">
+                <div class="solution-number">02</div>
+                <h3>Accountability Metrics</h3>
+                <p>Track, score, and rank diversity of accelerators and incubators with cultural, social, and financial repercussions for not supporting diverse startups.</p>
+                <div class="ai-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+                    AI Impact Dashboard & Benchmarking
+                </div>
+                <div class="impact-list">
+                    <div class="impact-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        Enhanced transparency
+                    </div>
+                    <div class="impact-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        Higher stakeholder trust
+                    </div>
+                </div>
+            </div>
+
+            <div class="solution-card">
+                <div class="solution-number">03</div>
+                <h3>"The Girls Club" Education</h3>
+                <p>Early education and mentorship programs connecting young girls with successful female entrepreneurs through AI-powered matching and business simulations.</p>
+                <div class="ai-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+                    Smart Matching & Business Scenarios
+                </div>
+                <div class="impact-list">
+                    <div class="impact-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        Future role models
+                    </div>
+                    <div class="impact-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        Empower young girls
+                    </div>
+                </div>
+            </div>
+
+            <div class="solution-card">
+                <div class="solution-number">04</div>
+                <h3>Coalition of Male Allies</h3>
+                <p>Design a coalition of fathers and male allies who support women founders, creating powerful examples for the next generation about gender equality.</p>
+                <div class="ai-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+                    AI Mentorship Matching & Content Creation
+                </div>
+                <div class="impact-list">
+                    <div class="impact-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        Systemic ecosystem change
+                    </div>
+                    <div class="impact-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        Model supportive behavior
+                    </div>
+                </div>
+            </div>
+
+            <div class="solution-card">
+                <div class="solution-number">05</div>
+                <h3>Anonymized Investment Data</h3>
+                <p>AI-driven anonymization of pitch decks and business plans, shifting evaluation from founder identity to opportunity potential.</p>
+                <div class="ai-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+                    AI Scrubbing & Standardized Evaluation
+                </div>
+                <div class="impact-list">
+                    <div class="impact-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        Level playing field
+                    </div>
+                    <div class="impact-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        Greater innovation
+                    </div>
+                </div>
+            </div>
+
+            <div class="solution-card">
+                <div class="solution-number">06</div>
+                <h3>Incentivize Quick Funding</h3>
+                <p>Automated due diligence and predictive funding models to streamline investment while ensuring fairness and identifying high-growth diverse startups.</p>
+                <div class="ai-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+                    Automated Due Diligence & Predictive Models
+                </div>
+                <div class="impact-list">
+                    <div class="impact-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        Higher time-to-market
+                    </div>
+                    <div class="impact-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                        Smarter capital allocation
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Theory of Change -->
+    <section class="theory-section">
+        <div class="section-header">
+            <span class="section-tag">Theory of Change</span>
+            <h2 class="section-title">A Multi-Stakeholder Approach</h2>
+            <p class="section-subtitle">Bringing together female founders, investors, incubators, and accelerators to drive systemic change.</p>
+        </div>
+
+        <div class="theory-visual">
+            <div class="theory-flow">
+                <div class="theory-node">
+                    <div class="theory-icon">
+                        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h4>Align Stakeholders</h4>
+                    <p>Founders, investors, incubators</p>
+                </div>
+                <div class="theory-node">
+                    <div class="theory-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    </div>
+                    <h4>Remove Barriers</h4>
+                    <p>Systemic change initiatives</p>
+                </div>
+                <div class="theory-node">
+                    <div class="theory-icon">
+                        <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    </div>
+                    <h4>Allocate Capital</h4>
+                    <p>10% to female founders by 2035</p>
+                </div>
+                <div class="theory-node">
+                    <div class="theory-icon">
+                        <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    </div>
+                    <h4>Inclusive Innovation</h4>
+                    <p>Thriving ecosystem for all</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Goal Section -->
+    <section class="goal-section" id="goal">
+        <div class="goal-number">10%</div>
+        <h2 class="goal-text">Our Goal: 10% by 2030</h2>
+        <p class="goal-subtext">We seek to inspire men and women to fund female entrepreneurs, increasing investments in diverse female founders from 2.2% to 10% by 2030.</p>
+        <a href="#join" class="btn-primary">Stand Up For 10</a>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="join">
+        <div class="section-header">
+            <span class="section-tag">Join the Movement</span>
+            <h2 class="section-title" style="color: #1F2937;">Ways to Get Involved</h2>
+            <p class="section-subtitle" style="color: #6B7280;">Access. Capital. Liquidity — One Platform.</p>
+            <a href="https://wfw-metronome.replit.app/dashboard" class="btn-demo" style="display: inline-flex; align-items: center; gap: 0.5rem; background: linear-gradient(135deg, #DC2626 0%, #B91C1C 100%); color: white; padding: 1rem 2rem; border-radius: 100px; text-decoration: none; font-weight: 600; margin-top: 1.5rem; transition: all 0.3s ease;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="5 3 19 12 5 21 5 3"/>
+                </svg>
+                See Demo
+            </a>
+        </div>
+
+        <div class="cta-grid">
+            <div class="cta-card">
+                <h3>For Investors</h3>
+                <p>Start building your portfolio now from as little as $1,000.</p>
+                <a href="https://buy.stripe.com/28E6oI2nO0qycx9eP84gg03" class="cta-btn">Join as Investor</a>
+            </div>
+            <div class="cta-card">
+                <h3>For Entrepreneurs</h3>
+                <p>Gain unprecedented access to capital decision-makers and resources to scale your company effectively.</p>
+                <a href="https://buy.stripe.com/8x23cw3rS2yGdBd36q4gg02" class="cta-btn">Join as Founder</a>
+            </div>
+            <div class="cta-card">
+                <h3>For Institutions</h3>
+                <p>We operate a commercial model to generate returns and also a 501(c) to develop our research and education initiatives. We accept philanthropic capital to assist us in our mission.</p>
+                <a href="mailto:hello@women-collective.com" class="cta-btn">Partner With Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="partners-section">
+        <div class="section-header">
+            <span class="section-tag">Research Partners</span>
+            <h2 class="section-title">Our Collaborators</h2>
+        </div>
+        <div class="partners-grid">
+            <span style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #1F2937;">Parsons ELab</span>
+            <span style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #1F2937;">Diversified Capital Coalition</span>
+            <span style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #1F2937;">Vitality Capital</span>
+            <span style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: #1F2937;">Chloe Capital</span>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="https://i.ibb.co/ZMkYLKb/Screenshot-2024-12-22-at-1-18-07-AM.png" alt="Wealthy Women" style="height: 60px; width: auto; margin-bottom: 1rem; filter: brightness(0) invert(1);" />
+                <p>We are women and men who "feminize" capital so living systems thrive. Transforming capital allocation to create a more inclusive world.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#research">The Research</a></li>
+                    <li><a href="#barriers">Key Barriers</a></li>
+                    <li><a href="#solutions">Our Solutions</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Learn More</h4>
+                <ul>
+                    <li><a href="#goal">Our Goal</a></li>
+                    <li><a href="#join">Get Involved</a></li>
+                    <li><a href="https://wfw-metronome.replit.app/dashboard">Platform Demo</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Connect</h4>
+                <ul>
+                    <li><a href="#join">Become a Member</a></li>
+                    <li><a href="https://www.linkedin.com/company/wealthywomen/">Follow on LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Wealthy Women. All rights reserved.</p>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/company/wealthywomen/" aria-label="LinkedIn">
+                    <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                </a>
+                <a href="#" aria-label="Twitter">
+                    <svg viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg>
+                </a>
+                <a href="#" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Stakeholder tabs
+        const tabs = document.querySelectorAll('.stakeholder-tab');
+        const contents = document.querySelectorAll('.stakeholder-content');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const target = tab.dataset.tab;
+                
+                tabs.forEach(t => t.classList.remove('active'));
+                contents.forEach(c => c.classList.remove('active'));
+                
+                tab.classList.add('active');
+                document.getElementById(target).classList.add('active');
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.problem-card, .solution-card, .inhibitor-card, .cta-card').forEach(el => {
+            el.style.opacity 
