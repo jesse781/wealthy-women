@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>WealthyWomen</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--black:#0A0A0A;--white:#FFF;--g50:#FAFAFA;--g100:#F5F5F5;--g200:#E5E5E5;--g300:#D4D4D4;--g400:#A3A3A3;--g500:#737373;--g600:#525252;--green:#1E5631;--blue:#1E3A5F;--orange:#D97706;--red:#DC2626}
+body{font-family:Inter,-apple-system,sans-serif;background:var(--g50);color:var(--black);line-height:1.6}
+h1,h2,h3{font-family:Inter,-apple-system,sans-serif;font-weight:600}
+.playfair{font-family:'Playfair Display',serif}
+a{color:inherit;text-decoration:none}
+.auth{min-height:100vh;display:grid;grid-template-columns:1fr 1fr}
+.auth-left{background:var(--black);padding:2.5rem;display:flex;flex-direction:column;color:var(--white)}
+.auth-left h1{font-family:'Playfair Display',serif;font-size:2rem;line-height:1.2;margin-bottom:1.5rem;text-transform:uppercase;letter-spacing:0.03em}
+.auth-left h1 em{font-style:italic;text-transform:none}
+.stat{display:flex;align-items:baseline;gap:1rem;padding:0.75rem 0;border-bottom:1px solid rgba(255,255,255,0.1)}
+.stat .n{font-family:'Playfair Display',serif;font-size:2.5rem}
+.stat .n.gr{color:#4ADE80}
+.stat .t{color:var(--g400);font-size:13px}
+.stat .t strong{color:var(--white)}
+.auth-right{padding:2.5rem;background:var(--white);display:flex;align-items:center;justify-content:center;overflow-y:auto}
+.auth-form{max-width:400px;width:100%}
+.logo{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:600;margin-bottom:1.5rem}
+.fg{margin-bottom:1rem}
+.fg label{display:block;font-size:11px;font-weight:600;margin-bottom:0.35rem;color:var(--g600);text-transform:uppercase;letter-spacing:0.03em}
+.fg input,.fg select{width:100%;padding:0.7rem;border:1px solid var(--g200);font-size:14px;font-family:inherit}
+.fg input:focus,.fg select:focus{outline:none;border-color:var(--black)}
+.pbox{background:var(--g50);padding:1.25rem;margin-bottom:1.25rem;border:1px solid var(--g200)}
+.pbox .row{display:flex;justify-content:space-between;align-items:center}
+.pbox .price{font-family:'Playfair Display',serif;font-size:1.75rem}
+.pbox p{font-size:12px;color:var(--g500);margin-top:0.5rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:0.8rem 1.5rem;font-size:12px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;border:none;cursor:pointer;font-family:inherit;transition:opacity 0.2s}
+.btn-p{background:var(--black);color:var(--white);width:100%}
+.btn-p:hover{opacity:0.9}
+.btn-s{background:transparent;color:var(--black);border:1px solid var(--g300)}
+.btn-sm{padding:0.5rem 1rem;font-size:10px}
+.links{margin-top:1.25rem;text-align:center;font-size:13px;color:var(--g500)}
+.links a{color:var(--black);font-weight:600}
+.app{display:flex;min-height:100vh}
+.side{width:220px;background:var(--black);padding:1.25rem;position:fixed;height:100vh;left:0;top:0;display:flex;flex-direction:column;z-index:50}
+.side-logo{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:600;color:var(--white);padding-bottom:1rem;border-bottom:1px solid rgba(255,255,255,0.1);margin-bottom:0.75rem}
+.side-nav{list-style:none;flex:1}
+.side-nav li{margin-bottom:0.2rem}
+.side-nav button{display:flex;align-items:center;gap:0.7rem;padding:0.6rem 0.75rem;color:var(--g400);font-size:13px;font-weight:500;background:none;border:none;width:100%;text-align:left;cursor:pointer;font-family:inherit;border-radius:4px}
+.side-nav button:hover{color:var(--white);background:rgba(255,255,255,0.05)}
+.side-nav button.act{color:var(--white);background:rgba(255,255,255,0.1)}
+.main{flex:1;margin-left:220px;padding:1.5rem;padding-bottom:100px}
+.hdr{margin-bottom:1.5rem}
+.hdr h1{font-size:1.5rem}
+.hdr p{color:var(--g500);font-size:14px;margin-top:0.2rem}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:1.5rem}
+.scard{background:var(--white);padding:1.25rem;border:1px solid var(--g200)}
+.scard .lb{font-size:10px;font-weight:600;text-transform:uppercase;color:var(--g500);margin-bottom:0.25rem}
+.scard .vl{font-family:'Playfair Display',serif;font-size:1.75rem}
+.scard .ch{font-size:12px;color:var(--green);margin-top:0.2rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1rem}
+.card{background:var(--white);border:1px solid var(--g200);padding:1.25rem}
+.card-h{padding:1.25rem;border-bottom:1px solid var(--g100);display:flex;gap:1rem;align-items:flex-start}
+.card-logo{width:44px;height:44px;background:var(--black);display:flex;align-items:center;justify-content:center;color:var(--white);font-weight:700;font-size:11px}
+.card-info h3{font-size:14px;font-weight:600}
+.card-info .sec{font-size:12px;color:var(--g500)}
+.tag{padding:0.2rem 0.5rem;font-size:9px;font-weight:700;text-transform:uppercase}
+.tag.raising{background:var(--black);color:var(--white)}
+.tag.funded{background:var(--g100);color:var(--g600)}
+.badge{display:inline-block;padding:0.2rem 0.5rem;font-size:10px;font-weight:600;text-transform:uppercase}
+.badge.act{background:#DCFCE7;color:#166534}
+.badge.pend{background:#FEF3C7;color:#92400E}
+.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,0.6);display:flex;align-items:center;justify-content:center;z-index:1000;padding:1rem;opacity:0;visibility:hidden;transition:all 0.2s}
+.modal-bg.active{opacity:1;visibility:visible}
+.modal{background:var(--white);width:100%;max-width:450px;max-height:90vh;overflow-y:auto}
+.modal-h{padding:1.25rem;border-bottom:1px solid var(--g200);display:flex;justify-content:space-between;align-items:center}
+.modal-h h2{font-size:1.125rem}
+.modal-x{background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--g400)}
+.modal-body{padding:1.25rem}
+.modal-f{padding:1.25rem;border-top:1px solid var(--g200);display:flex;gap:0.75rem}
+.modal-f .btn{flex:1}
+.mnav{display:none;position:fixed;bottom:0;left:0;right:0;background:var(--black);padding:0.5rem;z-index:100}
+.mnav-in{display:flex;justify-content:space-around}
+.mnav button{display:flex;flex-direction:column;align-items:center;gap:0.2rem;padding:0.5rem;color:var(--g500);font-size:9px;background:none;border:none;cursor:pointer}
+.mnav button.act{color:var(--white)}
+@media(max-width:1024px){.side{display:none}.main{margin-left:0}.mnav{display:block}.stats{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:768px){.auth{grid-template-columns:1fr}.auth-left{display:none}.grid{grid-template-columns:1fr}.stats{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+var defined = function(x) { return typeof x !== 'undefined'; };
+var S = {
+    screen: 'landing',
+    tab: 'overview',
+    user: null,
+    deals: [
+        {id:1,name:'PetPort',init:'PP',sector:'Pet Tech',desc:'Digital pet passport platform.',target:200000,raised:45000,min:1000,status:'raising'},
+        {id:2,name:'Globalcover.AI',init:'GC',sector:'InsurTech',desc:'AI-powered insurance platform.',target:200000,raised:28000,min:1000,status:'raising'},
+        {id:3,name:'Moontech',init:'MT',sector:'Technology',desc:'Enterprise automation platform.',target:100000,raised:100000,min:1000,status:'funded'},
+        {id:4,name:'Neo Mobility',init:'NM',sector:'CleanTech',desc:'B2B electric vehicle platform.',target:100000,raised:100000,min:1000,status:'funded'},
+        {id:5,name:'Velents.AI',init:'VA',sector:'HR Tech',desc:'AI recruitment platform.',target:100000,raised:100000,min:1000,status:'funded'}
+    ],
+    members: [
+        {id:1,name:'Jane Smith',email:'jane@example.com'}
+    ],
+    investments: [
+        {id:1,memberId:1,dealId:3,amt:10000,value:11200},
+        {id:2,memberId:1,dealId:4,amt:15000,value:17500}
+    ]
+};
+
+function $(sel) { return document.querySelector(sel); }
+function fmt(n) { return '$' + n.toLocaleString(); }
+function getDeal(id) { return S.deals.find(function(d) { return d.id === id; }); }
+function getInv(id) { return S.investments.filter(function(i) { return i.memberId === id; }); }
+
+function render() {
+    var app = $('#app');
+    if (!app) return;
+    var html = '';
+    if (S.screen === 'landing') html = renderLanding();
+    else if (S.screen === 'login') html = renderLogin();
+    else if (S.screen === 'faq') html = renderFAQ();
+    else if (S.screen === 'apply') html = renderApply();
+    else if (S.screen === 'demo' || S.screen === 'dashboard') html = renderDashboard();
+    else if (S.screen === 'admin') html = renderAdmin();
+    app.innerHTML = html;
+    bindEvents();
+}
+
+function renderLanding() {
+    return '<div class="auth">' +
+        '<div class="auth-left">' +
+            '<p style="font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--g500);margin-bottom:0.5rem">The Problem We Are Solving</p>' +
+            '<h1>The Funding Gap is <em>Real</em></h1>' +
+            '<div class="stat"><span class="n">2.3%</span><span class="t"><strong>of VC funding</strong><br>goes to female founders</span></div>' +
+            '<div class="stat"><span class="n">1%</span><span class="t"><strong>for female-only teams</strong><br>in the United States</span></div>' +
+            '<div class="stat"><span class="n gr">63%</span><span class="t"><strong>better ROI</strong><br>female-founded companies</span></div>' +
+            '<div class="stat" style="border:none"><span class="n">10%</span><span class="t"><strong>our target by 2030</strong><br>join the movement</span></div>' +
+            '<div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.1)">' +
+                '<p style="font-size:12px;color:var(--g400);margin-bottom:0.75rem">Are you a founder seeking funding?</p>' +
+                '<a href="#" id="apply-link-left" style="font-size:12px;color:var(--white);border:1px solid rgba(255,255,255,0.3);padding:0.5rem 1rem;display:inline-block">Apply for Funding</a>' +
+            '</div>' +
+            '<div style="margin-top:1rem">' +
+                '<a href="#" id="leaderboard-link" style="font-size:12px;color:var(--g400);display:flex;align-items:center;gap:0.5rem">🏆 See Live Investor Leaderboard</a>' +
+            '</div>' +
+            '<div style="margin-top:auto;padding-top:1rem;border-top:1px solid rgba(255,255,255,0.1)">' +
+                '<a href="#" id="faq-link" style="font-size:12px;color:var(--g400)">Frequently Asked Questions</a>' +
+                '<p style="font-size:10px;color:var(--g600);margin-top:0.75rem">Source: PitchBook 2024</p>' +
+            '</div>' +
+        '</div>' +
+        '<div class="auth-right">' +
+            '<div class="auth-form">' +
+                '<div class="logo">WealthyWomen</div>' +
+                '<p style="font-size:14px;color:var(--g600);line-height:1.6;margin-bottom:1.5rem">Our conviction is the problem must be solved through more women deal-makers. Join us and access vetted deals we invest in with you.</p>' +
+                '<h2>Become a Member</h2>' +
+                '<p style="color:var(--g500);font-size:14px;margin-bottom:1rem">Join the new army of deal-makers</p>' +
+                '<div class="pbox">' +
+                    '<div class="row"><span style="font-weight:600">Annual Membership</span><span class="price">$299</span></div>' +
+                    '<p>Full access to deal room, AI matching, due diligence, and community.</p>' +
+                '</div>' +
+                '<form id="join-form">' +
+                    '<div class="fg"><label>Full Name</label><input type="text" id="join-name" required placeholder="Jane Smith"></div>' +
+                    '<div class="fg"><label>Email</label><input type="email" id="join-email" required placeholder="jane@example.com"></div>' +
+                    '<div class="fg"><label>Password</label><input type="password" id="join-pass" required placeholder="********" minlength="8"></div>' +
+                    '<button type="submit" class="btn btn-p">Pay $299 and Join</button>' +
+                '</form>' +
+                '<div class="links">Already a member? <a href="#" id="login-link">Sign in</a></div>' +
+                '<div class="links"><a href="#" id="demo-link">View Platform Demo</a></div>' +
+                '<div class="links" style="margin-top:1.5rem"><a href="#" id="admin-link" style="color:var(--g400);font-size:11px">Admin</a></div>' +
+            '</div>' +
+        '</div>' +
+    '</div>';
+}
+
+function renderLogin() {
+    return '<div class="auth">' +
+        '<div class="auth-left"><h1>Welcome Back</h1></div>' +
+        '<div class="auth-right">' +
+            '<div class="auth-form">' +
+                '<div class="logo">WealthyWomen</div>' +
+                '<h2>Sign In</h2>' +
+                '<form id="login-form">' +
+                    '<div class="fg"><label>Email</label><input type="email" required placeholder="jane@example.com"></div>' +
+                    '<div class="fg"><label>Password</label><input type="password" required placeholder="********"></div>' +
+                    '<button type="submit" class="btn btn-p">Sign In</button>' +
+                '</form>' +
+                '<div class="links">Not a member? <a href="#" id="back-link">Join now</a></div>' +
+            '</div>' +
+        '</div>' +
+    '</div>';
+}
+
+function renderFAQ() {
+    var faqs = [
+        {q: 'What is WealthyWomen?', a: 'A members-only platform connecting investors with vetted, female-founded startups. We co-invest alongside you and reserve 70% of every deal for women investors.'},
+        {q: 'How much does membership cost?', a: '$299/year for full access to deal room, AI matching, and community.'},
+        {q: 'What is the minimum investment?', a: 'Our mission is to democratise access to investing, so we have brought the minimum down to just $1,000 per deal.'},
+        {q: 'How are startups vetted?', a: 'AI-powered scoring (85%+ required) plus team due diligence.'},
+        {q: 'Can I sell my investment?', a: 'Yes! Our secondary market lets members list positions.'}
+    ];
+    var faqHtml = faqs.map(function(f) {
+        return '<details style="border:1px solid var(--g200);margin-bottom:0.5rem"><summary style="padding:1rem;cursor:pointer;font-weight:600">' + f.q + '</summary><div style="padding:0 1rem 1rem;color:var(--g600)">' + f.a + '</div></details>';
+    }).join('');
+    return '<div class="auth">' +
+        '<div class="auth-left"><h1>Frequently Asked Questions</h1></div>' +
+        '<div class="auth-right" style="overflow-y:auto">' +
+            '<div class="auth-form" style="max-width:550px">' +
+                '<div class="logo">WealthyWomen</div>' +
+                '<h2 style="margin-bottom:1.5rem">FAQs</h2>' +
+                faqHtml +
+                '<div class="links" style="margin-top:1.5rem"><a href="#" id="back-link">Back to home</a></div>' +
+            '</div>' +
+        '</div>' +
+    '</div>';
+}
+
+function renderApply() {
+    return '<div class="auth">' +
+        '<div class="auth-left"><h1>Apply for Funding</h1><p style="color:var(--g400);margin-top:1rem">Upload your pitch deck for AI scoring. 85% minimum required.</p></div>' +
+        '<div class="auth-right">' +
+            '<div class="auth-form">' +
+                '<div class="logo">WealthyWomen</div>' +
+                '<h2>Startup Application</h2>' +
+                '<form id="apply-form">' +
+                    '<div class="fg"><label>Company Name</label><input type="text" required></div>' +
+                    '<div class="fg"><label>Your Name</label><input type="text" required></div>' +
+                    '<div class="fg"><label>Email</label><input type="email" required></div>' +
+                    '<div class="fg"><label>Sector</label><select required><option value="">Select</option><option>FinTech</option><option>HealthTech</option><option>CleanTech</option><option>AI/ML</option></select></div>' +
+                    '<div class="fg"><label>Amount Raising ($)</label><input type="number" required placeholder="200000"></div>' +
+                    '<button type="submit" class="btn btn-p">Submit Application</button>' +
+                '</form>' +
+                '<div class="links"><a href="#" id="back-link">Back</a></div>' +
+            '</div>' +
+        '</div>' +
+    '</div>';
+}
+
+function renderDashboard() {
+    var isDemo = S.screen === 'demo';
+    var navItems = [
+        {id: 'overview', label: 'Overview'},
+        {id: 'deals', label: 'Deal Room'},
+        {id: 'portfolio', label: 'Portfolio'},
+        {id: 'community', label: 'Community'},
+        {id: 'learn', label: 'Learn'},
+        {id: 'calculator', label: 'Calculator'},
+        {id: 'secondary', label: 'Secondary'},
+        {id: 'referrals', label: 'Referrals'}
+    ];
+    var navHtml = navItems.map(function(n) {
+        return '<li><button class="nav-btn' + (S.tab === n.id ? ' act' : '') + '" data-tab="' + n.id + '">' + n.label + '</button></li>';
+    }).join('');
+    
+    return '<div class="app">' +
+        '<aside class="side">' +
+            '<div class="side-logo">WealthyWomen</div>' +
+            '<ul class="side-nav">' + navHtml +
+                '<li style="margin-top:0.75rem"><button id="exit-btn">' + (isDemo ? 'Exit Demo' : 'Sign Out') + '</button></li>' +
+            '</ul>' +
+        '</aside>' +
+        '<main class="main">' +
+            (isDemo ? '<div style="background:#FEF3C7;padding:0.75rem 1rem;margin-bottom:1.25rem;border:1px solid var(--orange);font-size:13px"><strong>Demo Mode</strong> - <a href="#" id="join-demo">Join for $299/yr</a></div>' : '') +
+            renderTab() +
+        '</main>' +
+        '<nav class="mnav"><div class="mnav-in">' +
+            '<button class="mnav-btn' + (S.tab === 'overview' ? ' act' : '') + '" data-tab="overview">Home</button>' +
+            '<button class="mnav-btn' + (S.tab === 'deals' ? ' act' : '') + '" data-tab="deals">Deals</button>' +
+            '<button class="mnav-btn' + (S.tab === 'portfolio' ? ' act' : '') + '" data-tab="portfolio">Portfolio</button>' +
+            '<button class="mnav-btn' + (S.tab === 'community' ? ' act' : '') + '" data-tab="community">Community</button>' +
+        '</div></nav>' +
+    '</div>';
+}
+
+function renderTab() {
+    if (S.tab === 'overview') return renderOverview();
+    if (S.tab === 'deals') return renderDeals();
+    if (S.tab === 'portfolio') return renderPortfolio();
+    if (S.tab === 'community') return renderCommunity();
+    if (S.tab === 'learn') return renderLearn();
+    if (S.tab === 'calculator') return renderCalculator();
+    if (S.tab === 'secondary') return renderSecondary();
+    if (S.tab === 'referrals') return renderReferrals();
+    return renderOverview();
+}
+
+function renderOverview() {
+    var inv = getInv(S.user ? S.user.id : 1);
+    var total = inv.reduce(function(s, i) { return s + (i.amt || 0); }, 0);
+    var value = inv.reduce(function(s, i) { return s + (i.value || 0); }, 0);
+    return '<div class="hdr"><h1>Welcome back</h1><p>Your personalized dashboard</p></div>' +
+        '<div class="stats">' +
+            '<div class="scard"><div class="lb">Portfolio Value</div><div class="vl">' + fmt(value) + '</div><div class="ch">+12%</div></div>' +
+            '<div class="scard"><div class="lb">Invested</div><div class="vl">' + fmt(total) + '</div></div>' +
+            '<div class="scard"><div class="lb">Positions</div><div class="vl">' + inv.length + '</div></div>' +
+            '<div class="scard"><div class="lb">Active Deals</div><div class="vl">' + S.deals.filter(function(d) { return d.status === 'raising'; }).length + '</div></div>' +
+        '</div>' +
+        '<div class="card"><h3 style="margin-bottom:1rem">AI Recommendations</h3>' +
+            S.deals.filter(function(d) { return d.status === 'raising'; }).slice(0, 2).map(function(d) {
+                return '<div style="display:flex;align-items:center;gap:1rem;padding:1rem;background:var(--g50);margin-bottom:0.5rem">' +
+                    '<div class="card-logo">' + d.init + '</div>' +
+                    '<div style="flex:1"><strong>' + d.name + '</strong><br><span style="font-size:12px;color:var(--g500)">' + d.sector + '</span></div>' +
+                    '<span style="background:var(--green);color:white;padding:0.2rem 0.5rem;font-size:10px">94% Match</span>' +
+                '</div>';
+            }).join('') +
+        '</div>';
+}
+
+function renderDeals() {
+    return '<div class="hdr"><h1>Deal Room</h1><p>Explore opportunities</p></div>' +
+        '<div class="grid">' +
+            S.deals.map(function(d) {
+                return '<div class="card" style="padding:0">' +
+                    '<div class="card-h">' +
+                        '<div class="card-logo">' + d.init + '</div>' +
+                        '<div class="card-info"><h3>' + d.name + '</h3><div class="sec">' + d.sector + '</div></div>' +
+                        '<span class="tag ' + d.status + '">' + (d.status === 'raising' ? 'Raising' : 'Funded') + '</span>' +
+                    '</div>' +
+                    '<div style="padding:1.25rem">' +
+                        '<p style="font-size:13px;color:var(--g600);margin-bottom:1rem">' + d.desc + '</p>' +
+                        '<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.5rem;padding-top:1rem;border-top:1px solid var(--g100)">' +
+                            '<div><div style="font-size:9px;text-transform:uppercase;color:var(--g500)">Target</div><div style="font-weight:600">' + fmt(d.target) + '</div></div>' +
+                            '<div><div style="font-size:9px;text-transform:uppercase;color:var(--g500)">Raised</div><div style="font-weight:600">' + fmt(d.raised) + '</div></div>' +
+                            '<div><div style="font-size:9px;text-transform:uppercase;color:var(--g500)">Min</div><div style="font-weight:600">' + fmt(d.min) + '</div></div>' +
+                        '</div>' +
+                    '</div>' +
+                    '<div style="padding:1rem 1.25rem;border-top:1px solid var(--g100)">' +
+                        (d.status === 'raising' ? '<button class="btn btn-p btn-sm" style="width:100%">Invest</button>' : '<button class="btn btn-s btn-sm" style="width:100%" disabled>Funded</button>') +
+                    '</div>' +
+                '</div>';
+            }).join('') +
+        '</div>';
+}
+
+function renderPortfolio() {
+    var inv = getInv(S.user ? S.user.id : 1);
+    if (!inv.length) {
+        return '<div class="hdr"><h1>Portfolio</h1></div><div class="card" style="text-align:center;padding:2rem"><p style="color:var(--g500)">No investments yet.</p></div>';
+    }
+    return '<div class="hdr"><h1>Portfolio</h1></div>' +
+        '<div class="card" style="padding:0;overflow-x:auto"><table style="width:100%;border-collapse:collapse">' +
+            '<thead><tr style="background:var(--g50)"><th style="padding:0.875rem 1rem;text-align:left;font-size:10px;text-transform:uppercase;color:var(--g500)">Company</th><th style="padding:0.875rem 1rem;text-align:left;font-size:10px;text-transform:uppercase;color:var(--g500)">Invested</th><th style="padding:0.875rem 1rem;text-align:left;font-size:10px;text-transform:uppercase;color:var(--g500)">Value</th><th style="padding:0.875rem 1rem;text-align:left;font-size:10px;text-transform:uppercase;color:var(--g500)">Return</th></tr></thead>' +
+            '<tbody>' +
+                inv.map(function(i) {
+                    var d = getDeal(i.dealId);
+                    var ret = ((i.value - i.amt) / i.amt * 100).toFixed(1);
+                    return '<tr style="border-top:1px solid var(--g100)"><td style="padding:0.875rem 1rem"><strong>' + (d ? d.name : '?') + '</strong></td><td style="padding:0.875rem 1rem">' + fmt(i.amt) + '</td><td style="padding:0.875rem 1rem">' + fmt(i.value) + '</td><td style="padding:0.875rem 1rem;color:var(--green)">+' + ret + '%</td></tr>';
+                }).join('') +
+            '</tbody>' +
+        '</table></div>';
+}
+
+function renderCommunity() {
+    var activity = [
+        {name: 'Jesse Witkowski', city: 'NYC', amount: 45000, company: 'PetPort.AI', pct: 45, time: '2 min ago', rank: '🥈'},
+        {name: 'Anonymous Investor', city: 'London', amount: 200000, company: 'WealthyWomen.US', pct: 90, time: '8 min ago', rank: '', milestone: true},
+        {name: 'Alexis Morgan', city: 'LA', amount: 85000, company: 'Globalcover.AI', pct: 62, time: '25 min ago', rank: '🥇'},
+        {name: 'Sarah Chen', city: 'NYC', amount: 35000, company: 'Neo Mobility', pct: 78, time: '1 hour ago', rank: '🥉'},
+        {name: 'Anonymous Investor', city: 'Dubai', amount: 150000, company: 'Velents.AI', pct: 55, time: '2 hours ago', rank: ''},
+        {name: 'Mehreen Noorani', city: 'DXB', amount: 55000, company: 'PetPort.AI', pct: 52, time: '3 hours ago', rank: '⭐'},
+        {name: 'Emily Davis', city: 'SF', amount: 28000, company: 'Moontech', pct: 68, time: '4 hours ago', rank: '⭐'},
+        {name: 'Anonymous Investor', city: 'Singapore', amount: 120000, company: 'Neo Mobility', pct: 72, time: '5 hours ago', rank: ''}
+    ];
+    
+    var feedHtml = activity.map(function(a) {
+        var metGoal = a.pct >= 70;
+        return '<div class="card" style="margin-bottom:0.75rem;padding:0;overflow:hidden">' +
+            (a.milestone ? '<div style="background:var(--green);color:white;padding:0.5rem 1rem;font-size:11px;font-weight:600">🎉 MILESTONE REACHED!</div>' : '') +
+            '<div style="padding:1rem">' +
+                '<div style="display:flex;gap:1rem;align-items:flex-start">' +
+                    '<div style="width:48px;height:48px;background:var(--g200);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px">' + (a.name.indexOf('Anonymous') > -1 ? '👤' : a.name.charAt(0)) + '</div>' +
+                    '<div style="flex:1">' +
+                        '<div style="font-size:14px;line-height:1.5"><strong>' + a.name + '</strong> <span style="color:var(--g500);font-size:12px">' + a.city + '</span> ' + a.rank + ' invested <strong style="color:var(--green)">' + fmt(a.amount) + '</strong> in <strong>' + a.company + '</strong></div>' +
+                        '<div style="font-size:11px;color:var(--g500);margin-top:0.25rem">' + a.time + '</div>' +
+                    '</div>' +
+                '</div>' +
+                '<div style="margin-top:1rem;padding-top:1rem;border-top:1px solid var(--g100)">' +
+                    '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem">' +
+                        '<span style="font-size:12px;font-weight:600">' + (metGoal ? '✅' : '🎯') + ' Female-Funded: ' + a.pct + '%</span>' +
+                        '<span style="font-size:11px;color:var(--g500)">Target: 70%</span>' +
+                    '</div>' +
+                    '<div style="height:8px;background:var(--g100);border-radius:4px;overflow:hidden">' +
+                        '<div style="height:100%;width:' + a.pct + '%;background:' + (metGoal ? 'var(--green)' : 'var(--blue)') + '"></div>' +
+                    '</div>' +
+                    (!metGoal ? '<div style="margin-top:0.75rem;padding:0.75rem;background:var(--g50);border-radius:4px"><div style="font-size:12px;color:var(--blue);font-weight:500">Help reach 70% female-funded!</div><button class="btn btn-sm" style="background:var(--blue);color:white;margin-top:0.5rem">Join This Deal</button></div>' : '') +
+                '</div>' +
+                '<div style="display:flex;gap:0.5rem;margin-top:1rem">' +
+                    '<button class="btn btn-s btn-sm" style="flex:1">👏 Congratulate</button>' +
+                    '<button class="btn btn-s btn-sm">💬 Comment</button>' +
+                    '<button class="btn btn-s btn-sm">🔗 Share</button>' +
+                '</div>' +
+            '</div>' +
+        '</div>';
+    }).join('');
+    
+    var leaderboard = [
+        {name: 'Alexis M., LA', amount: '$425K', rank: '🥇'},
+        {name: 'Sarah C., NYC', amount: '$380K', rank: '🥈'},
+        {name: 'Mehreen N., DXB', amount: '$290K', rank: '🥉'}
+    ];
+    
+    return '<div class="hdr"><h1>Community</h1><p>See what fellow investors are backing</p></div>' +
+        '<div style="display:grid;grid-template-columns:2fr 1fr;gap:1.25rem">' +
+            '<div>' +
+                '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem">' +
+                    '<h3>🔔 Live Activity Feed</h3>' +
+                    '<span style="font-size:11px;color:var(--green);display:flex;align-items:center;gap:0.3rem"><span style="width:8px;height:8px;background:var(--green);border-radius:50%"></span>Live</span>' +
+                '</div>' +
+                feedHtml +
+            '</div>' +
+            '<div>' +
+                '<div style="background:var(--black);color:white;padding:1.25rem;margin-bottom:1rem;border-radius:4px">' +
+                    '<div style="font-size:11px;text-transform:uppercase;color:var(--g400);margin-bottom:0.5rem">Platform Stats</div>' +
+                    '<div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">' +
+                        '<div><div style="font-family:Playfair Display,serif;font-size:1.75rem">$2.4M</div><div style="font-size:11px;color:var(--g400)">Invested Today</div></div>' +
+                        '<div><div style="font-family:Playfair Display,serif;font-size:1.75rem">68%</div><div style="font-size:11px;color:var(--g400)">Female-Funded</div></div>' +
+                    '</div>' +
+                '</div>' +
+                '<div style="background:var(--blue);color:white;padding:1.25rem;border-radius:4px;text-align:center">' +
+                    '<div style="font-size:24px;margin-bottom:0.5rem">🏆</div>' +
+                    '<div style="font-weight:600">Top Investors</div>' +
+                    '<div style="font-size:12px;opacity:0.9;margin:0.25rem 0 1rem">This Month</div>' +
+                    leaderboard.map(function(l) {
+                        return '<div style="display:flex;justify-content:space-between;align-items:center;padding:0.5rem;background:rgba(255,255,255,0.1);border-radius:4px;margin-bottom:0.5rem"><span>' + l.rank + ' ' + l.name + '</span><span style="font-weight:600">' + l.amount + '</span></div>';
+                    }).join('') +
+                '</div>' +
+            '</div>' +
+        '</div>';
+}
+
+function renderLearn() {
+    var content = [
+        {title: 'DD Recordings', color: 'var(--green)', items: [
+            {name: 'PetPort Deep Dive', dur: '45 min', type: 'DD'},
+            {name: 'Globalcover.AI Analysis', dur: '38 min', type: 'DD'},
+            {name: 'Neo Mobility Review', dur: '42 min', type: 'DD'}
+        ]},
+        {title: 'Investing 101', color: 'var(--blue)', items: [
+            {name: 'Angel Investing Basics', dur: '12 min', type: 'Course'},
+            {name: 'Reading Term Sheets', dur: '20 min', type: 'Course'},
+            {name: 'Valuation Methods', dur: '15 min', type: 'Course'}
+        ]},
+        {title: 'Strategy', color: '#374151', items: [
+            {name: 'Portfolio Diversification', dur: '14 min', type: 'Course'},
+            {name: 'When to Follow On', dur: '11 min', type: 'Course'},
+            {name: 'Exit Strategies', dur: '16 min', type: 'Course'}
+        ]},
+        {title: 'Masterclasses', color: 'var(--black)', items: [
+            {name: 'Sarah Chen: Angel to VC', dur: '45 min', type: 'PRO'},
+            {name: 'Live: Portfolio Review', dur: '60 min', type: 'LIVE'},
+            {name: 'Q&A with Top Angels', dur: '35 min', type: 'Recording'}
+        ]}
+    ];
+    
+    return '<div class="hdr"><h1>Learn and Research</h1><p>DD recordings, courses, and masterclasses</p></div>' +
+        '<div style="display:flex;gap:0.5rem;margin-bottom:1.25rem;flex-wrap:wrap">' +
+            '<button class="btn btn-sm" style="background:var(--black);color:white">All</button>' +
+            '<button class="btn btn-s btn-sm">DD Recordings</button>' +
+            '<button class="btn btn-s btn-sm">Courses</button>' +
+            '<button class="btn btn-s btn-sm">Masterclasses</button>' +
+        '</div>' +
+        '<div style="display:flex;gap:1rem;overflow-x:auto;padding-bottom:1rem">' +
+            content.map(function(col) {
+                return '<div style="min-width:280px;flex-shrink:0">' +
+                    '<div style="background:' + col.color + ';color:white;padding:0.75rem 1rem;font-weight:600;font-size:13px;margin-bottom:0.5rem;border-radius:4px">' + col.title + '</div>' +
+                    col.items.map(function(item) {
+                        return '<div class="card" style="margin-bottom:0.5rem;padding:1rem">' +
+                            '<div style="font-weight:600;font-size:13px;margin-bottom:0.5rem">' + item.name + '</div>' +
+                            '<div style="display:flex;justify-content:space-between;align-items:center">' +
+                                '<span style="font-size:11px;color:var(--g500)">' + item.dur + '</span>' +
+                                '<span style="font-size:9px;padding:0.2rem 0.4rem;background:var(--g100);font-weight:600">' + item.type + '</span>' +
+                            '</div>' +
+                        '</div>';
+                    }).join('') +
+                '</div>';
+            }).join('') +
+        '</div>';
+}
+
+function renderCalculator() {
+    return '<div class="hdr"><h1>Investment Calculator</h1><p>Compare returns across asset classes</p></div>' +
+        '<div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem">' +
+            '<div class="card">' +
+                '<h3 style="margin-bottom:1rem">Parameters</h3>' +
+                '<div class="fg"><label>Investment Amount</label><input type="number" id="calc-amt" value="10000"></div>' +
+                '<div class="fg"><label>Asset Class</label><select id="calc-asset"><option value="angel">Angel Investing (27%)</option><option value="vc">Top VC Fund (25%)</option><option value="sp500">S&P 500 (10%)</option><option value="realestate">Real Estate (8%)</option><option value="bonds">Bonds (5%)</option></select></div>' +
+                '<div class="fg"><label>Time Horizon</label><select id="calc-years"><option value="3">3 Years</option><option value="5" selected>5 Years</option><option value="7">7 Years</option><option value="10">10 Years</option></select></div>' +
+                '<button class="btn btn-p" id="calc-btn">Calculate</button>' +
+            '</div>' +
+            '<div>' +
+                '<div style="background:var(--black);color:white;padding:1.25rem;margin-bottom:0.75rem">' +
+                    '<div style="font-size:10px;text-transform:uppercase;color:var(--g400)">Projected Value</div>' +
+                    '<div id="calc-result" style="font-family:Playfair Display,serif;font-size:2.25rem">$33,198</div>' +
+                    '<div id="calc-mult" style="font-size:12px;color:#4ADE80">3.3x return over 5 years</div>' +
+                '</div>' +
+                '<div class="card">' +
+                    '<h4 style="font-size:13px;font-weight:600;margin-bottom:0.75rem">Compare All (5yr, $10K)</h4>' +
+                    '<div id="calc-chart">' +
+                        '<div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.5rem"><span style="width:80px;font-size:11px">Angel</span><div style="flex:1;background:var(--g100);height:16px"><div style="width:100%;height:100%;background:#86EFAC"></div></div><span style="font-size:11px;font-weight:600">$33,198</span></div>' +
+                        '<div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.5rem"><span style="width:80px;font-size:11px">Top VC</span><div style="flex:1;background:var(--g100);height:16px"><div style="width:75%;height:100%;background:#A7F3D0"></div></div><span style="font-size:11px;font-weight:600">$24,883</span></div>' +
+                        '<div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.5rem"><span style="width:80px;font-size:11px">S&P 500</span><div style="flex:1;background:var(--g100);height:16px"><div style="width:48%;height:100%;background:#BFDBFE"></div></div><span style="font-size:11px;font-weight:600">$16,105</span></div>' +
+                        '<div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.5rem"><span style="width:80px;font-size:11px">Real Estate</span><div style="flex:1;background:var(--g100);height:16px"><div style="width:44%;height:100%;background:#DDD6FE"></div></div><span style="font-size:11px;font-weight:600">$14,693</span></div>' +
+                        '<div style="display:flex;align-items:center;gap:0.5rem"><span style="width:80px;font-size:11px">Bonds</span><div style="flex:1;background:var(--g100);height:16px"><div style="width:38%;height:100%;background:#E5E5E5"></div></div><span style="font-size:11px;font-weight:600">$12,763</span></div>' +
+                    '</div>' +
+                '</div>' +
+            '</div>' +
+        '</div>';
+}
+
+function renderSecondary() {
+    var hotDeals = [
+        {name: 'SpaceX', init: 'SX', sector: 'Aerospace', price: 125000, gain: '+81%'},
+        {name: 'Anthropic', init: 'AN', sector: 'AI', price: 95000, gain: '+120%'},
+        {name: 'Revolut', init: 'RV', sector: 'FinTech', price: 75000, gain: '+82%'},
+        {name: 'Stripe', init: 'ST', sector: 'Payments', price: 150000, gain: '+75%'},
+        {name: 'OpenAI', init: 'OA', sector: 'AI', price: 200000, gain: '+100%'}
+    ];
+    
+    return '<div class="hdr"><h1>Secondary Market</h1><p>Access exclusive pre-IPO positions</p></div>' +
+        '<div style="background:var(--black);color:white;padding:1rem;margin-bottom:1.25rem;display:flex;align-items:center;gap:1rem">' +
+            '<span style="font-size:1.25rem">⭐</span>' +
+            '<div><strong>Hot Deals</strong><br><span style="font-size:12px;color:var(--g400)">High-demand positions rarely available</span></div>' +
+        '</div>' +
+        '<div class="grid">' +
+            hotDeals.map(function(d) {
+                return '<div class="card" style="padding:0">' +
+                    '<div class="card-h">' +
+                        '<div class="card-logo" style="background:linear-gradient(135deg,#667eea,#764ba2)">' + d.init + '</div>' +
+                        '<div class="card-info"><h3>' + d.name + '</h3><div class="sec">' + d.sector + '</div></div>' +
+                        '<span style="background:var(--orange);color:white;padding:0.2rem 0.5rem;font-size:10px;font-weight:600">HOT</span>' +
+                    '</div>' +
+                    '<div style="padding:1.25rem">' +
+                        '<div style="display:flex;justify-content:space-between;margin-bottom:0.5rem"><span style="font-size:12px;color:var(--g500)">Ask Price</span><span style="font-weight:600">' + fmt(d.price) + '</span></div>' +
+                        '<div style="display:flex;justify-content:space-between"><span style="font-size:12px;color:var(--g500)">Gain</span><span style="font-weight:600;color:var(--green)">' + d.gain + '</span></div>' +
+                    '</div>' +
+                    '<div style="padding:1rem 1.25rem;border-top:1px solid var(--g100)">' +
+                        '<button class="btn btn-p btn-sm" style="width:100%">Request Access</button>' +
+                    '</div>' +
+                '</div>';
+            }).join('') +
+        '</div>';
+}
+
+function renderReferrals() {
+    var code = 'MEMBER2025';
+    return '<div class="hdr"><h1>Referrals</h1><p>Invite friends, earn rewards</p></div>' +
+        '<div style="display:grid;grid-template-columns:2fr 1fr;gap:1.25rem">' +
+            '<div style="background:var(--blue);color:white;padding:1.5rem;border-radius:4px">' +
+                '<h2 style="margin-bottom:0.5rem">Give $50, Get $50</h2>' +
+                '<p style="color:rgba(255,255,255,0.8);margin-bottom:1.25rem">When your friend joins and invests, you both get $50.</p>' +
+                '<div style="background:rgba(255,255,255,0.1);padding:0.875rem;display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem">' +
+                    '<div><div style="font-size:10px;color:rgba(255,255,255,0.6);text-transform:uppercase">Your Code</div><div style="font-family:monospace;font-size:1.25rem;font-weight:700">' + code + '</div></div>' +
+                    '<button class="btn btn-sm" style="background:white;color:var(--blue)">Copy</button>' +
+                '</div>' +
+                '<div style="display:flex;gap:0.5rem">' +
+                    '<button class="btn btn-sm" style="background:white;color:var(--black)">Email</button>' +
+                    '<button class="btn btn-sm" style="background:#1DA1F2;color:white">Twitter</button>' +
+                    '<button class="btn btn-sm" style="background:#0A66C2;color:white">LinkedIn</button>' +
+                '</div>' +
+            '</div>' +
+            '<div>' +
+                '<div class="card" style="margin-bottom:0.75rem">' +
+                    '<h3 style="margin-bottom:0.75rem">Your Stats</h3>' +
+                    '<div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem">' +
+                        '<div style="text-align:center;padding:0.75rem;background:var(--g50)"><div style="font-family:Playfair Display,serif;font-size:1.5rem">1</div><div style="font-size:10px;color:var(--g500);text-transform:uppercase">Referrals</div></div>' +
+                        '<div style="text-align:center;padding:0.75rem;background:var(--green);color:white"><div style="font-family:Playfair Display,serif;font-size:1.5rem">$50</div><div style="font-size:10px;text-transform:uppercase">Earned</div></div>' +
+                    '</div>' +
+                '</div>' +
+                '<div style="background:#DCFCE7;border:1px solid var(--green);padding:0.875rem;border-radius:4px">' +
+                    '<strong style="font-size:11px;color:#166534">🎯 Ambassador Program</strong>' +
+                    '<p style="font-size:11px;color:#166534;margin-top:0.25rem">Refer 10+ for exclusive perks!</p>' +
+                '</div>' +
+            '</div>' +
+        '</div>';
+}
+
+function renderAdmin() {
+    return '<div class="app">' +
+        '<aside class="side">' +
+            '<div class="side-logo">WW Admin</div>' +
+            '<ul class="side-nav">' +
+                '<li><button class="nav-btn act" data-tab="queue">Queue</button></li>' +
+                '<li><button class="nav-btn" data-tab="members">Members</button></li>' +
+                '<li><button class="nav-btn" data-tab="deals">Deals</button></li>' +
+                '<li style="margin-top:0.75rem"><button id="exit-btn">Exit</button></li>' +
+            '</ul>' +
+        '</aside>' +
+        '<main class="main">' +
+            '<div class="hdr"><h1>Admin Panel</h1></div>' +
+            '<div class="card"><p>Admin functionality here.</p></div>' +
+        '</main>' +
+    '</div>';
+}
+
+function bindEvents() {
+    var el;
+    
+    // Landing page links
+    el = $('#faq-link'); if (el) el.onclick = function(e) { e.preventDefault(); S.screen = 'faq'; render(); };
+    el = $('#login-link'); if (el) el.onclick = function(e) { e.preventDefault(); S.screen = 'login'; render(); };
+    el = $('#demo-link'); if (el) el.onclick = function(e) { e.preventDefault(); S.screen = 'demo'; S.tab = 'overview'; render(); };
+    el = $('#apply-link-left'); if (el) el.onclick = function(e) { e.preventDefault(); S.screen = 'apply'; render(); };
+    el = $('#leaderboard-link'); if (el) el.onclick = function(e) { e.preventDefault(); S.screen = 'demo'; S.tab = 'community'; render(); };
+    el = $('#admin-link'); if (el) el.onclick = function(e) { e.preventDefault(); S.screen = 'admin'; render(); };
+    el = $('#back-link'); if (el) el.onclick = function(e) { e.preventDefault(); S.screen = 'landing'; render(); };
+    el = $('#exit-btn'); if (el) el.onclick = function() { S.screen = 'landing'; S.user = null; render(); };
+    el = $('#join-demo'); if (el) el.onclick = function(e) { e.preventDefault(); S.screen = 'landing'; render(); };
+    
+    // Forms
+    el = $('#join-form'); if (el) el.onsubmit = function(e) { e.preventDefault(); alert('Redirecting to Stripe...'); S.user = {id: 1, name: 'Demo User'}; S.screen = 'dashboard'; S.tab = 'overview'; render(); };
+    el = $('#login-form'); if (el) el.onsubmit = function(e) { e.preventDefault(); S.user = S.members[0]; S.screen = 'dashboard'; S.tab = 'overview'; render(); };
+    el = $('#apply-form'); if (el) el.onsubmit = function(e) { e.preventDefault(); alert('Application submitted!'); S.screen = 'landing'; render(); };
+    
+    // Navigation
+    document.querySelectorAll('.nav-btn[data-tab]').forEach(function(btn) {
+        btn.onclick = function() { S.tab = btn.getAttribute('data-tab'); render(); };
+    });
+    document.querySelectorAll('.mnav-btn[data-tab]').forEach(function(btn) {
+        btn.onclick = function() { S.tab = btn.getAttribute('data-tab'); render(); };
+    });
+    
+    // Calculator
+    el = $('#calc-btn'); if (el) el.onclick = function() {
+        var amt = parseInt($('#calc-amt').value) || 10000;
+        var years = parseInt($('#calc-years').value) || 5;
+        var rates = {angel: 0.27, vc: 0.25, sp500: 0.10, realestate: 0.08, bonds: 0.05};
+        var asset = $('#calc-asset').value;
+        var rate = rates[asset] || 0.27;
+        var result = amt * Math.pow(1 + rate, years);
+        var mult = (result / amt).toFixed(2);
+        $('#calc-result').textContent = fmt(Math.round(result));
+        $('#calc-mult').textContent = mult + 'x return over ' + years + ' years';
+    };
+}
+
+// Start
+render();
+</script>
+</body>
+</html>
