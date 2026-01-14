@@ -607,7 +607,7 @@ function bindEvents() {
     el = $('#join-demo'); if (el) el.onclick = function(e) { e.preventDefault(); S.screen = 'landing'; render(); };
     
     // Forms
-    el = $('#join-form'); if (el) el.onsubmit = function(e) { e.preventDefault(); alert('Redirecting to Stripe...'); S.user = {id: 1, name: 'Demo User'}; S.screen = 'dashboard'; S.tab = 'overview'; render(); };
+    el = $('#join-form'); if (el) el.onsubmit = function(e) { e.preventDefault(); window.open('https://buy.stripe.com/dRm5kE6E4b5c54H36q4gg0k', '_blank'); };
     el = $('#login-form'); if (el) el.onsubmit = function(e) { e.preventDefault(); S.user = S.members[0]; S.screen = 'dashboard'; S.tab = 'overview'; render(); };
     el = $('#apply-form'); if (el) el.onsubmit = function(e) { e.preventDefault(); alert('Application submitted!'); S.screen = 'landing'; render(); };
     
